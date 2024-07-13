@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  background-color: #EDEDED;
+}
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+}
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  margin-left: -50px;
+}
+.carousel img {
+  flex: 0 0 45%; /* Each image takes up one third of the carousel width */
+  max-width: 45%; /* Ensure the images don't exceed one third of the carousel width */
+  margin-right: 20px;
+  border-radius: 15px;
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+.bg-section {
+  position: relative;
+  padding: 20px 0;
+}
+.bg-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 683px;
+  height: 100%;
+  background-image: url('../public/bg.png'); /* Add your background image path */
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Messina Sans:wght@400;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nantes:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Neue Haas Unica W1G:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    />
+    <!-- chart js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="max-w-screen-[1305px] my-5 mx-[93px]">
+        <!-- section 1 -->
+      <section class="bg-[#2042B6] h-[718px] relative rounded-lg">
+      
+      <header class="flex justify-between items-center mx-[20px] bg-transparent py-6">
+        <div>
+            <img class="self-stretch max-h-full min-h-[34px] shrink-0 z-[1]" src="./public/logo.png" alt="Logo">
+        </div>
+        <div class="flex gap-5">
+            <button class="h-[42px] w-[42px] rounded-full py-3.5 px-[13px] z-[1] border-[1px] border-solid border-white">
+                <img width="60px" src="./public/sharewhite.png" alt="Share">
+            </button>
+            <button class="cursor-pointer py-[12px] px-4 flex-1 rounded-3xl flex flex-row items-start justify-start whitespace-nowrap z-[1] border-[1px] border-solid border-white hover:box-border hover:border-[1px] hover:border-solid">
+                <div class="h-[-1.5rem] flex-1 relative text-sm font-messina-sans text-white text-left inline-block">
+                    Download the 2024 Report
+                </div>
+            </button>
+            <button id="menu-btn">
+                <img src="./public/bars.png" alt="Menu Bars">
+            </button>
+        </div>
+      </header>
+
+  <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden absolute overflow-hidden bg-white w-[350px] h-[450px] shadow-md top-20 right-0 m-5 p-3 z-[1999]  rounded-lg">
+          <div class="flex justify-between items-center  py-4 space-x-5">
+            <butzton class="h-[42px] bg-[#AFCD80] w-[42px] rounded-full py-3.5 px-[13px] z-[1] border-[1px] border-solid border-black">
+              <img width="60px" src="./public/share.png" alt="">
+          </butzton>
+          <button class="cursor-pointer py-[12px] px-4 flex-1 rounded-3xl flex flex-row items-start justify-start whitespace-nowrap z-[1] border-[1px] border-solid border-black hover:box-border hover:border-[1px] hover:border-solid ">
+              <div class="h-[-1.5rem] flex-1 relative text-sm font-messina-sans text-black text-left inline-block ">
+                  Download the 2024 Report
+              </div>
+          </button>
+              <button id="close-menu-btn" class="text-gray-700 focus:outline-none">
+                  <img src="./public/cross.png" alt="">
+              </button>
+          </div>
+          <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-gray-200">The WPPOOL Index</a>
+          <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-gray-200">All Companies</a>
+          <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-gray-200">Potential Future Listings</a>
+          <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-gray-200">Status of USA</a>
+          <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-gray-200">Stories & Ideas</a>
+          <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-gray-200">About WPPOOL</a>
+          <a href="#" class="block px-4 py-3 text-blue hover:bg-gray-200">Visit WPPOOL</a>
+      </div>
+
+          <div class="flex items-center ml-[38px] py-10">
+              <div class="">
+                  <div class="flex flex-col gap-5 text-white">
+                      <div class="mb-[-8px] text-5xl">
+                          60
+                      </div>
+                      <p class="text-[#CDCDCD]">Companies</p>
+                  </div>
+                  <div class="flex flex-col gap-5 text-white mt-[50px]">
+                      <div class="flex flex-col gap-5 text-white">
+                          <div class="mb-[-8px] text-5xl">
+                              $100B
+                          </div>
+                          <p class="text-[#CDCDCD]">Market Cap</p>
+                      </div>
+                      <div class="flex flex-col gap-5 text-white mt-[50px]">
+                          <div class="mb-[-8px] text-5xl">
+                              3.5x
+                          </div>
+                          <p class="text-[#CDCDCD]">Revenue multiple</p>
+                      </div>
+                      <div class="flex mt-[40px] flex-col gap-5 text-white mb-10">
+                          <div class="mb-[-8px] text-5xl">
+                              60
+                          </div>
+                          <p class="text-[#CDCDCD]">LTM avg. revenue growth rate</p>
+                      </div>
+                  </div>
+              </div>
+              <!-- animation -->
+              <div>
+                <particle-network></particle-network>
+              </div>
+              
+          </div>
+          <div id="scroll-down-btn" class="absolute bottom-[3.25rem] right-5 h-16 w-16 shadow-[0px_24px_24px_rgba(0,_0,_0,_0.36)] rounded-105xl bg-white flex flex-row justify-end p-4 box-border z-[1]">
+              <img class="h-8 w-8 relative" loading="lazy" alt="" src="./public/arrow-downward-alt.svg" />
+          </div>
+      </section>
+      <!-- section-two -->
+       <section  id="second-section" class="bg-white py-3 my-10">
+         <!-- nav -->
+         <div class="flex justify-between items-center mx-[20px] bg-[#F3F3F3] p-4 py-6 rounded-sm">
+            <div>
+                <img class="self-stretch max-h-full min-h-[34px] shrink-0 z-[1]" src="./public/blacklogo.png" alt="">
+            </div>
+            <div class="flex gap-5">
+                <button class="h-[42px] w-[42px] rounded-full py-3.5 px-[13px] z-[1] border-[1px] border-solid border-black">
+                    <img width="60px" src="./public/share.png" alt="">
+                </button>
+                <button class="cursor-pointer py-[12px] px-4 flex-1 rounded-3xl flex flex-row items-start justify-start whitespace-nowrap z-[1] border-[1px] border-solid border-black hover:box-border hover:border-[1px] hover:border-solid ">
+                    <div class="h-[-1.5rem] flex-1 relative text-sm font-messina-sans text-black text-left inline-block ">
+                        Download the 2024 Report
+                    </div>
+                </button>
+                <button id="menu-btn">
+                    <img class="bg-black" src="./public/bars.png" alt="">
+                </button>
+            </div>
+        </div>
+        <!-- accordian -->
+        <div class="flex m-4 gap-3 items-start">
+          <!-- Tab Index -->
+          <div class="w-[224px] h-[620px] bg-[#F3F3F3] p-4 space-y-4 rounded-lg">
+            <div class="flex-1 flex flex-col gap-4">
+              <div class="bg-[#2042B6] text-white rounded-lg p-3 flex justify-between items-center">
+                <span  class="text-sm">The Index </span>
+                <span>+</span>
+              </div>
+              <div class="text-[#647888] rounded-lg p-3 flex justify-between items-center">
+                <span  class="text-sm">The Index Tab Two</span>
+                <span>+</span>
+              </div>
+              <div class=" text-[#647888] rounded-lg p-3 flex justify-between items-center">
+                <span class="text-sm">The Index Tab Three</span>
+                <span>+</span>
+              </div>
+              <div class=" text-[#647888] rounded-lg p-3 flex justify-between items-center">
+                <span class="text-sm">The Index Tab Four</span>
+                <span>+</span>
+              </div>
+            </div>
+          </div>
+          <!-- Main Content -->
+          <div class="w-[80%]">
+            <div class="flex items-start mb-4">
+              <img src="/public/union.svg" alt="Union" />
+              <div>
+                <h1 class="m-0 text-3xl font-normal">The WPPOOL Index</h1>
+              </div>
+            </div>
+            <!-- Cards -->
+            <div class="grid grid-cols-4 gap-3 my-5">
+              <div class="bg-[#F3F3F3] rounded-md h-[80px] p-2 flex justify-between items-center">
+                <h4 class="text-[#FC714D] text-2xl">+66.2%</h4>
+                <div class="flex items-center gap-2">
+                  <div>
+                    <p class="h-7">Wppool</p>
+                    <p>Index</p>
+                  </div>
+                  <div class="h-[60px] w-1 bg-[#FC714D] rounded-12xs"></div>
+                </div>
+              </div>
+              <div class="bg-[#F3F3F3] rounded-md h-[80px] p-2 flex justify-between items-center">
+                <h4 class="text-[#615DE3] text-2xl">+26.6%</h4>
+                <div class="flex items-center gap-2">
+                  <div>
+                    <p class="h-7">Google</p>
+                    <p>Index</p>
+                  </div>
+                  <div class="h-[60px] w-1 bg-[#615DE3] rounded-12xs"></div>
+                </div>
+              </div>
+              <div class="bg-[#F3F3F3] rounded-md h-[80px] p-2 flex justify-between items-center">
+                <h4 class="text-[#7CA63A] text-2xl">+34.1%</h4>
+                <div class="flex items-center gap-2">
+                  <div>
+                    <p class="h-7">Microsoft</p>
+                  </div>
+                  <div class="h-[60px] w-1 bg-[#7CA63A] rounded-12xs"></div>
+                </div>
+              </div>
+              <div class="bg-[#F3F3F3] rounded-md h-[80px] p-2 flex justify-between items-center">
+                <h4 class="text-[#6F34A1] text-2xl">+17%</h4>
+                <div class="flex items-center gap-2">
+                  <div>
+                    <p class="h-7">Twitter</p>
+                    <p>Index</p>
+                  </div>
+                  <div class="h-[60px] w-1 bg-[#6F34A1] rounded-12xs"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Button Select Options -->
+            <div class="flex justify-between">
+              <div>
+                <div class="inline-block">
+                  <select class="block w-[178px] h-[38px] appearance-none bg-blue-600 text-white py-2 px-4 rounded-full shadow-md hover:bg-blue-700 focus:outline-none">
+                    <option>Sectors</option>
+                    <!-- Add more options here -->
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M10 12l-5-5h10l-5 5z" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="inline-block">
+                  <select class="block w-[178px] h-[38px] appearance-none bg-blue-600 text-white py-2 px-4 rounded-full shadow-md hover:bg-blue-700 focus:outline-none">
+                    <option>Types of IPO</option>
+                    <!-- Add more options here -->
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M10 12l-5-5h10l-5 5z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center space-x-2 bg-gray-200 rounded-full p-1">
+                <button class="bg-transparent text-gray-700 py-2 px-4 rounded-full focus:outline-none hover:bg-gray-300" onclick="activateButton(this)">
+                  1Y
+                </button>
+                <button class="bg-transparent text-gray-700 py-2 px-4 rounded-full focus:outline-none hover:bg-gray-300" onclick="activateButton(this)">
+                  YTD
+                </button>
+                <button class="bg-blue-600 text-white py-2 px-4 rounded-full focus:outline-none shadow-md" onclick="activateButton(this)">
+                  6M
+                </button>
+                <button class="bg-transparent text-gray-700 py-2 px-4 rounded-full focus:outline-none hover:bg-gray-300" onclick="activateButton(this)">
+                  1M
+                </button>
+                <button class="bg-transparent text-gray-700 py-2 px-4 rounded-full focus:outline-none hover:bg-gray-300" onclick="activateButton(this)">
+                  1W
+                </button>
+              </div>
+            </div>
+            <canvas id="myChart" width="800" height="300"></canvas>
+          </div>
+        </div>
+      </section>
+      <!-- table part -->
+      <section class="container mx-auto mt-10 bg-white p-5">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-4xl font-semibold">All Companies</h1>
+            <div class="flex gap-2 items-center justify-center border w-[500px]  bg-[#DADADA] rounded-lg py-2 px-4 relative ">
+              <img src="./public/search.png" alt="Search" class="w-6 h-6 absolute left-[10px] top-[9px] z-50 ">
+              <input type="text" placeholder="Search Companies" class="flex-grow outline-none text-center bg-inherit">
+          </div>
+        </div>
+        
+        <div class="overflow-x-auto   rounded-lg">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Company</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ticker</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Vertical</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Market Cap ($B)</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Revenue Growth</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Gross Margin</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">EV/Revenue</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">YTD Performance</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <tr class="bg-[#F3F3F3]">
+                        <td class="px-6 py-4 whitespace-nowrap">Adyen</td>
+                        <td class="px-6 py-4 whitespace-nowrap">AFRM</td>
+                        <td class="px-6 py-4 whitespace-nowrap">Payments</td>
+                        <td class="px-6 py-4 whitespace-nowrap">$17.15</td>
+                        <td class="px-6 py-4 whitespace-nowrap">$50.5</td>
+                        <td class="px-6 py-4 whitespace-nowrap">49.0%</td>
+                        <td class="px-6 py-4 whitespace-nowrap">15.8%</td>
+                        <td class="px-6 py-4 whitespace-nowrap">6.3</td>
+                        <td class="px-6 py-4 whitespace-nowrap">24.3%</td>
+                    </tr>
+                    <tr >
+                        <td class="px-6 py-4 whitespace-nowrap">Affirm</td>
+                        <td class="px-6 py-4 whitespace-nowrap">AFRM</td>
+                        <td class="px-6 py-4 whitespace-nowrap">Lending</td>
+                        <td class="px-6 py-4 whitespace-nowrap">$17.15</td>
+                        <td class="px-6 py-4 whitespace-nowrap">$$1.5</td>
+                        <td class="px-6 py-4 whitespace-nowrap">27.0%</td>
+                        <td class="px-6 py-4 whitespace-nowrap">15.8%</td>
+                        <td class="px-6 py-4 whitespace-nowrap">6.3</td>
+                        <td class="px-6 py-4 whitespace-nowrap">24.3%</td>
+                    </tr>
+                    <tr class="bg-[#F3F3F3]">
+                        <td class="px-6 py-4 whitespace-nowrap">Alkami Technology</td>
+                        <td class="px-6 py-4 whitespace-nowrap">ALKT</td>
+                        <td class="px-6 py-4 whitespace-nowrap">Payments</td>
+                        <td class="px-6 py-4 whitespace-nowrap">$17.15</td>
+                        <td class="px-6 py-4 whitespace-nowrap">$50.5</td>
+                        <td class="px-6 py-4 whitespace-nowrap">49.0%</td>
+                        <td class="px-6 py-4 whitespace-nowrap">15.8%</td>
+                        <td class="px-6 py-4 whitespace-nowrap">6.3</td>
+                        <td class="px-6 py-4 whitespace-nowrap">24.3%</td>
+                    </tr>
+                    <tr >
+                        <td class="px-6 py-4 whitespace-nowrap">AvidXchange</td>
+                        <td class="px-6 py-4 whitespace-nowrap">BKKT</td>
+                        <td class="px-6 py-4 whitespace-nowrap">Payments</td>
+                        <td class="px-6 py-4 whitespace-nowrap">$17.15</td>
+                        <td class="px-6 py-4 whitespace-nowrap">$50.5</td>
+                        <td class="px-6 py-4 whitespace-nowrap">49.0%</td>
+                        <td class="px-6 py-4 whitespace-nowrap">15.8%</td>
+                        <td class="px-6 py-4 whitespace-nowrap">6.3</td>
+                        <td class="px-6 py-4 whitespace-nowrap">24.3%</td>
+                    </tr>
+                    <!-- Repeat <tr> for other rows -->
+                </tbody>
+            </table>
+        </div>
+
+      </section>
+      <!-- button -->
+      <div class="flex justify-center mt-10 space-x-4">
+          <button class="bg-blue-600 text-white py-2 px-4 rounded-[124px]">Download 'All Companies' Data</button>
+          <button class="bg-blue-600 text-white py-2 px-4 rounded-[124px]">View Methodology</button>
+      </div>
+      <!-- company -->
+       <section class="my-[150px]">
+          <div class="flex flex-col text-[#191618] space-y-2">
+            <h2 class="text-3xl font-semibold text-balance ">Potential Future Listings</h2>
+            <p class="max-w-[900px]">Porem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+          </div>
+          <!-- card -->
+          <div class="container mx-auto my-10 p-4">
+            <div class="grid grid-cols-5  gap-4">
+              <!-- child-1 -->
+                <div class="flex flex-col gap-5">
+                  <div class="flex items-center justify-center h-32 bg-white border rounded py-10 ">
+                    <img src="./public/group-227.svg" alt="Stripe" class="h-16 ">
+                </div>
+                <div class="flex items-center justify-center h-32 bg-white border rounded py-10 ">
+                    <img src="./public/group-226.svg" alt="Klarna" class="h-16">
+                </div>
+                </div>
+                <!-- child-2 -->
+                <div class="flex flex-col gap-4">
+                  <div class="flex items-center justify-center h-32 bg-white border rounded py-10 ">
+                    <img src="./public/group-225.svg" alt="Plaid" class="h-16">
+                </div>
+                <div class="flex items-center justify-center h-32 bg-white border rounded py-10 ">
+                    <img src="./public/group-224.svg" alt="Checkout.com" class="h-16">
+                </div>
+                </div>
+                <!-- child-3 -->
+                <div class="flex flex-col gap-4">
+                  <div class="flex items-center justify-center h-32 bg-white border rounded py-10 ">
+                      <img src="./public/group-223.svg" alt="Revolut" class="h-16">
+                  </div>
+                  <div class="flex items-center justify-center h-32 bg-white border rounded py-10 ">
+                      <img src="./public/Group 220.png" alt="Chime" class="h-16">
+                  </div>
+                </div>
+                <div class="flex flex-col gap-4">
+
+                  <div class="flex items-center justify-center h-32 bg-white border rounded py-10 ">
+                      <img src="./public/kala.png" alt="N26" class="  p-4">
+                  </div>
+                  <div class="flex items-center justify-center  h-32 bg-white border rounded py-10">
+                      <img src="./public/Group.png" alt="gusto" class="h-16 ">
+                  </div>
+                </div>
+                 <!--child-5  -->
+                <div class="flex flex-col gap-4">
+                  <div class="flex items-center justify-center  h-32 bg-white border rounded py-10">
+                    <img src="./public/revoult.png" alt="gusto" class="p-4 ">
+                </div>
+                <div class="flex items-center justify-center  h-32 bg-white border rounded py-10">
+                    <img src="./public/checkout.png" alt="gusto" class="p-4 ">
+                </div>
+                </div>
+               
+            </div>
+        </div>
+       </section>
+       <!-- slider -->
+        <section class="container mx-auto my-10">
+            <div class="text-[#191618] space-y-4">
+                <h2 class="text-3xl font-semibold">State of USA</h2>
+                <div class="relative inline-block my-2">
+                  <select class="block text-3xl w-[200px] appearance-none bg-blue-600 text-white py-2 px-4 pr-10 rounded-full shadow-md hover:bg-blue-700 focus:outline-none">
+                      <option>2024</option>
+                      <!-- Add more options here -->
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white ">
+                      <img width="20px" height="20px" src="./public/arrow_drop_down.png" alt="" >
+                  </div>
+              </div>
+              <p>Click through the slides or download the report to view natively on your device.</p>
+            </div>
+            <div class="bg-section relative">
+              <button class="absolute left-10 bottom-0 transform -translate-y-1/2 bg-white hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full"  onclick="prevSlide()">
+                ❮
+              </button>
+  
+              <div class="carousel-container">
+                <div class="carousel space-x-4 px-16" id="slides">
+                  <img src="./public/slider3.png" alt="Slide 1">
+                  <img class="w-full slide" src="./public/slider1.png" alt="Slide 2">
+                  <img class="w-full slide" src="./public/slider2.png" alt="Slide 3">
+                  <img class="w-full slide" src="./public/slider3.png" alt="Slide 4">
+                  <img class="w-full slide" src="./public/slider1.png" alt="Slide 5">
+                  <img class="w-full slide" src="./public/slider2.png" alt="Slide 6">
+                </div>
+              </div>
+              <button class="absolute left-[100px] bottom-0 transform -translate-y-1/2 bg-white hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full" onclick="nextSlide()">
+                ❯
+              </button>
+              <div class=" flex ml-[180px]  items-center justify-between rounded-[100px]">
+                <div class="flex items-center space-x-2 bg-white p-2 rounded-lg">
+                  <span>Page</span>
+                  <input type="number" class="w-12 border border-gray-300 rounded p-1" value="1">
+                  <span>of 3</span>
+                </div>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-[124px]">
+                  Download the 2024 Report
+                </button>
+              </div>
+            </div>
+        </section>
+        <!-- team section -->
+         <section >
+          <div class="container mx-auto">
+              <div class="text-[#191618] space-y-4 my-20">
+                <h2 class="text-3xl font-semibold">Stories & Ideas</h2>
+              <p>Click through the slides or download the report to view natively on your device.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
+              <!-- Card 1 -->
+              <div class="bg-white rounded-lg shadow-lg p-4 relative">
+                <img class="w-40 h-40 object-cover absolute top-[-50px] left-[30px]" src="./public/hujur.png" alt="Profile 1">
+                <div class="pt-24 px-2">
+                  <h2 class="font-semibold text-lg text-[#2042B6]">By: SambhuNath Gologar</h2>
+                  <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt reiciendis.</p>
+                  <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-[120px] hover:bg-blue-600">Read More</button>
+                </div>
+              </div>
+              <!-- card-2 -->
+              <div class="bg-white rounded-lg shadow-lg p-4 relative">
+                <img class="w-40 h-40 object-cover  absolute top-[-50px] left-[30px]" src="./public/gentle.png" alt="Profile 1">
+                <div class="pt-24 px-2">
+                  <h2 class="font-semibold text-lg text-[#2042B6]">By: SambhuNath Gologar</h2>
+                  <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt reiciendis.</p>
+                  <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-[120px] hover:bg-blue-600">Read More</button>
+                </div>
+              </div>
+              <!-- card-3 -->
+              <div class="bg-white rounded-lg shadow-lg p-4 relative">
+                <img class="w-40 h-40 object-cover  absolute top-[-50px] left-[30px]" src="./public/hujur.png" alt="Profile 1">
+                <div class="pt-24 px-2">
+                  <h2 class="font-semibold text-lg text-[#2042B6]">By: SambhuNath Gologar</h2>
+                  <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt reiciendis.</p>
+                  <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-[120px] hover:bg-blue-600">Read More</button>
+                </div>
+              </div>
+              <!-- Card 4 -->
+              <div class="bg-white rounded-lg shadow-lg p-4 relative mt-[50px]">
+                <img class="w-40 h-40 object-cover  absolute top-[-50px] left-[30px]" src="./public/hujur.png" alt="Profile 1">
+                <div class="pt-24 px-2">
+                  <h2 class="font-semibold text-lg text-[#2042B6]">By: SambhuNath Gologar</h2>
+                  <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt reiciendis.</p>
+                  <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-[120px] hover:bg-blue-600">Read More</button>
+                </div>
+              </div>
+              <!-- card-5 -->
+              <div class="bg-white rounded-lg shadow-lg p-4 relative  mt-[50px]">
+                <img class="w-40 h-40 object-cover  absolute top-[-50px] left-[30px]" src="./public/gentle.png" alt="Profile 1">
+                <div class="pt-24 px-2">
+                  <h2 class="font-semibold text-lg text-[#2042B6]">By: SambhuNath Gologar</h2>
+                  <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt reiciendis.</p>
+                  <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-[120px] hover:bg-blue-600">Read More</button>
+                </div>
+              </div>
+              <!-- card-6 -->
+              <div class="bg-white rounded-lg shadow-lg p-4 relative  mt-[50px]">
+                <img class="w-40 h-40 object-cover  absolute top-[-50px] left-[30px]" src="./public/hujur.png" alt="Profile 1">
+                <div class="pt-24 px-2">
+                  <h2 class="font-semibold text-lg text-[#2042B6]">By: SambhuNath Gologar</h2>
+                  <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt reiciendis.</p>
+                  <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-[120px] hover:bg-blue-600">Read More</button>
+                </div>
+              </div>
+           
+              </div>
+              <!-- Add more cards as needed -->
+            </div>
+         </section>
+         <div class="bg-[#9FA0A1] opacity-20 h-[3px] mt-20"></div>
+         <!-- about -->
+         <section class="bg-white items-center my-20 ">
+              <div  class="container mx-auto  flex justify-between items-center gap-3">
+                <div class="p-10" >
+                  <div class="text-[#191618] space-y-2 my-5">
+                    <h2 class="text-3xl font-semibold">Stories & Ideas</h2>
+                    <h4 class="text-[#7D7F81] text-[21px]">Investing in wppool for over 50 years</h4>
+                  <p>Click through the slides or download the report to view natively on your device.</p>
+                </div>
+                <button class=" bg-blue-500 text-white px-4 py-2  rounded-[120px] hover:bg-blue-600">Contact WPPOOL</button>
+                </div>
+                <div>
+                  <img class="w-[523px] h-[420px]" src="./public/mask.png" alt="">
+                </div>
+              </div>
+         </section>
+         <!-- portfolio companies -->
+          <section class="my-[150px]">
+                <h2 class="text-3xl font-semibold text-balance text-[#191618]">Selected WPPOOL Portfolio Companies</h2>
+                
+              <!-- card -->
+              <div class="container mx-auto my-3 p-2">
+                <div class="grid grid-cols-5  gap-4">
+                  <!-- child-1 -->
+                    <div class="flex flex-col gap-5">
+                      <div class="flex items-center justify-center h-32 bg-white border rounded py-10 px-4">
+                        <img src="./public/portfolio/alibaba.png" alt="Stripe" class="h-16 ">
+                    </div>
+                    <div class="flex items-center justify-center h-32 bg-white border rounded py-10 ">
+                        <img src="./public/portfolio/arg.png" alt="Klarna" class="h-16">
+                    </div>
+                    <div class="flex items-center justify-center h-32 bg-white border rounded py-10 ">
+                        <img src="./public/portfolio/Recurly_Logo_Purple 1.png" alt="Klarna" class="h-16">
+                    </div>
+                    <div class="flex items-center justify-center h-32 bg-white border rounded py-10 ">
+                        <img src="./public/portfolio/conne.png" alt="Klarna" class="h-16">
+                    </div>
+                    </div>
+                    <!-- child-2 -->
+                    <div class="flex flex-col gap-4">
+                      <div class="flex items-center justify-center h-32 bg-white border rounded py-10 ">
+                        <img src="./public/portfolio/conne.png" alt="Plaid" class="h-16">
+                    </div>
+                    <div class="flex items-center justify-center h-32 bg-white border rounded py-10 ">
+                        <img src="./public/portfolio/firebocka.png" alt="Checkout.com" class="h-16">
+                    </div>
+                      <div class="flex items-center justify-center h-32 bg-white border rounded py-10 ">
+                        <img src="./public/portfolio/fly.png" alt="Plaid" class="h-16">
+                    </div>
+                    <div class="flex items-center justify-center h-32 bg-white border rounded py-10 ">
+                        <img src="./public/portfolio/future.png" alt="Checkout.com" class="h-16">
+                    </div>
+                    </div>
+                    <!-- child-3 -->
+                    <div class="flex flex-col gap-4">
+                      <div class="flex items-center justify-center h-32 bg-white border rounded py-10 ">
+                          <img src="./public/portfolio/fly.png" alt="Revolut" class="h-16">
+                      </div>
+                      <div class="flex items-center justify-center h-32 bg-white border rounded py-10 ">
+                          <img src="./public/portfolio/ken.png" alt="Chime" class="h-16">
+                      </div>
+                      <div class="flex items-center justify-center h-32 bg-white border rounded py-10 ">
+                          <img src="./public/portfolio/vest.png" alt="Revolut" class="h-16">
+                      </div>
+                      <div class="flex items-center justify-center h-32 bg-white border rounded py-10 ">
+                          <img src="./public/portfolio/nota_bene_logo 1.png" alt="Chime" class="h-16">
+                      </div>
+                    </div>
+                    <div class="flex flex-col gap-4">
+    
+                      <div class="flex items-center justify-center h-32 bg-white border rounded py-10 ">
+                          <img src="./public/portfolio/min.png" alt="N26" class="  p-4">
+                      </div>
+                      <div class="flex items-center justify-center  h-32 bg-white border rounded py-10">
+                          <img src="./public/portfolio/oul.png" alt="gusto" class="h-16 ">
+                      </div>
+                      <div class="flex items-center justify-center h-32 bg-white border rounded py-10 ">
+                          <img src="./public/portfolio/ken.png" alt="N26" class="  p-4">
+                      </div>
+                      <div class="flex items-center justify-center  h-32 bg-white border rounded py-10">
+                          <img src="./public/portfolio/sn.png" alt="gusto" class="h-16 ">
+                      </div>
+                    </div>
+                     <!--child-5  -->
+                    <div class="flex flex-col gap-4">
+                      <div class="flex items-center justify-center  h-32 bg-white border rounded py-10">
+                        <img src="./public/portfolio/fly.png" alt="gusto" class="p-4 ">
+                    </div>
+                    <div class="flex items-center justify-center  h-32 bg-white border rounded py-10">
+                        <img src="./public/portfolio/toast.png" alt="gusto" class="p-4 ">
+                    </div>
+                      <div class="flex items-center justify-center  h-32 bg-white border rounded py-10">
+                        <img src="./public/portfolio/sna.png" alt="gusto" class="p-4 ">
+                    </div>
+                    <div class="flex items-center justify-center  h-32 bg-white border rounded py-10">
+                        <img src="./public/portfolio/vest.png" alt="gusto" class="p-4 ">
+                    </div>
+                    </div>
+                   
+                </div>
+            </div>
+          </section>
+          <footer class="bg-gray-50 py-10 px-5">
+            <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h2 class="text-xl font-bold mb-4">Experience remarkable WordPress products with a new level of power, beauty, and human-centered designs.</h2>
+                    <div class="mt-20">
+                      <p class="text-sm text-gray-500">©2024 Terms of Use Privacy Policy</p>
+                    <p class="text-sm ">Lorem ipsum dolor sit amet consectetur adipiscing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaera</p>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h3 class="font-bold mb-2 text-[#9FA0A1]">Jump to</h3>
+                    <ul class="space-y-2">
+                        <li class="text-blue-500 hover:underline"><a href="#">About Us</a></li>
+                        <li class="text-blue-500 hover:underline"><a href="#">Portfolio</a></li>
+                        <li class="text-blue-500 hover:underline"><a href="#">News</a></li>
+                        <li class="text-blue-500 hover:underline"><a href="#">Stories</a></li>
+                        <li class="text-blue-500 hover:underline"><a href="#">Jobs</a></li>
+                        <li class="text-blue-500 hover:underline"><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-2">Cambridge</h3>
+                    <p>70728 Yost Burg,<br>North Magdaleneview,<br>UT 97952-2814</p>
+                    <div class="bg-[#9FA0A1] opacity-20 h-[3px] my-5"></div>
+                    <h3 class="font-bold mb-2 mt-4">London</h3>
+                    <p>Suite 292 903 Stehr Streets,<br>Langworthtown, SC 94577-9465</p>
+                    <div class="bg-[#9FA0A1] opacity-20 h-[3px] my-5"></div>
+                    <h3 class="font-bold mb-2 mt-4">San Francisco</h3>
+                    <p>19837 Gilberto Lodge,<br>Lake Kendallville, Colorado - 97392, Bhutan</p>
+                    <div class="bg-[#9FA0A1] opacity-20 h-[3px] my-5"></div>
+                    <div class="flex mt-4 space-x-4 ">
+                        <a href="#"><img src="./public/linkedin.png" alt="LinkedIn" class="w-6 h-6 "></a>
+                        <a href="#" ><img src="./public/twitter.png" alt="Twitter" class="w-6 h-6 "></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div> 
+    <script src="./js/humberger.js"></script>
+    <script src="./js/accordiab.js"></script>
+    <script src="./js/indexchart.js"></script>
+    <script src="./js/particle-network.js"></script>
+    <script src="./js/slider.js"></script>
+    <script src="./js/scroll-down.js"></script>
+
+  </body>
+</html>
